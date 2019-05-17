@@ -26,10 +26,7 @@ class App extends React.Component {
     );
   }
 
-  // react says we have to define render for react.component
-  // render gets called a bunch of times so you don't generally want code here
-  // move it up to the constructor under the super and the initialization of state
-  render() {
+  renderContent() {
     // conditionally rendering content based on if error or lat is received
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
@@ -40,6 +37,13 @@ class App extends React.Component {
     } else {
       return <Spinner message="Please accept location request" />;
     }
+  }
+
+  // react says we have to define render for react.component
+  // render gets called a bunch of times so you don't generally want code here
+  // move it up to the constructor under the super and the initialization of state
+  render() {
+    return <div className="border-red">{this.renderContent()}</div>;
   }
 }
 
