@@ -25,10 +25,6 @@ class App extends React.Component {
     );
   }
 
-  componentDidUpdate() {
-    console.log("My componene was just updated - ut rerendered!");
-  }
-
   // react says we have to define render for react.component
   // render gets called a bunch of times so you don't generally want code here
   // move it up to the constructor under the super and the initialization of state
