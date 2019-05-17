@@ -5,23 +5,27 @@ class App extends React.Component {
   //not required by react
   //very first function will be called when this class is created/instantiated
   //good location to initialize the state
-  constructor(props) {
-    //app is extending from react component thus we need to call super. reference to parents construcotor
-    super(props);
-    // THIS IS THE ONLY TIME WE DO DIRECT ASSIGNMENT TO THIS.STATE
-    this.state = { lat: null, errorMessage: "" };
+  //constructor(props) {
+  //app is extending from react component thus we need to call super. reference to parents construcotor
+  //super(props);
+  // THIS IS THE ONLY TIME WE DO DIRECT ASSIGNMENT TO THIS.STATE
+  //this.state = { lat: null, errorMessage: "" };
+  //other way to initialize state
+
+  //}
+  state = { lat: null, errorMessage: "" };
+
+  componentDidMount() {
+    // we called setstate!
     // will take a moment to wait for location to come
     window.navigator.geolocation.getCurrentPosition(
-      position => {
-        // we called setstate!
-        this.setState({ lat: position.coords.latitude });
-      },
-      err => {
-        this.setState({
-          errorMessage: err.message
-        });
-      }
+      position => this.setState({ lat: position.coords.latitude }),
+      err => this.setState({ errorMessage: err.message })
     );
+  }
+
+  componentDidUpdate() {
+    console.log("My componene was just updated - ut rerendered!");
   }
 
   // react says we have to define render for react.component
