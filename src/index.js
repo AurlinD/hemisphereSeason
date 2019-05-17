@@ -10,9 +10,9 @@ class App extends React.Component {
   //super(props);
   // THIS IS THE ONLY TIME WE DO DIRECT ASSIGNMENT TO THIS.STATE
   //this.state = { lat: null, errorMessage: "" };
-  //other way to initialize state
-
   //}
+
+  //other way to initialize state (SIMPLER)
   state = { lat: null, errorMessage: "" };
 
   componentDidMount() {
